@@ -6,8 +6,6 @@ using ProyectoPruebaAleix.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProyectoPruebaAleix.Controllers
 {
@@ -33,17 +31,13 @@ namespace ProyectoPruebaAleix.Controllers
             return View(clientModel);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        #region apimethods
         public JsonResult GetCliente(string clientId)
         {
             int client_id = Convert.ToInt32(clientId);
@@ -78,7 +72,9 @@ namespace ProyectoPruebaAleix.Controllers
             return Json("Ok", null);
         }
 
+        #endregion
 
+        #region privateMethods
         private ModalInformationModel GetModalInformacionCliente()
         {
             ModalInformationModel modalCliente = new ModalInformationModel();
@@ -101,5 +97,6 @@ namespace ProyectoPruebaAleix.Controllers
 
             return modalCliente;
         }
+        #endregion
     }
 }

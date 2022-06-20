@@ -2,9 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using ProyectoPruebaAleix.Domain;
 using ProyectoPruebaAleix.Infrastructure.Repositories;
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace ProyectoPruebaAleix.Infrastructure.Services
 {

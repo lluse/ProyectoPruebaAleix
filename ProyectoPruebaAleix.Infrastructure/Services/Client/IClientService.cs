@@ -1,6 +1,5 @@
 ﻿using ProyectoPruebaAleix.Domain;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace ProyectoPruebaAleix.Infrastructure.Services
 {

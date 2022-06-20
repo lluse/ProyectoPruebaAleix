@@ -10,14 +10,6 @@ namespace ProyectoPruebaAleix.Infrastructure.Configuration
         {
             builder.ToTable("Clients");
 
-            //builder.Property(e => e.Nombre).IsRequired().HasMaxLength(100);
-
-            //builder.Property(e => e.Apellidos).IsRequired().HasMaxLength(200);
-
-            //builder.Property(e => e.Nif).HasMaxLength(15);
-
-            //builder.Property(e => e.Email).HasMaxLength(200);
-
             builder.HasData(
                 new Client { 
                     ClientId = 1,
