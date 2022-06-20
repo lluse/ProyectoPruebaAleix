@@ -1,0 +1,33 @@
+﻿@model ModalInformationModel
+
+<div id=@Model.Id_modal class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title">@Model.Titulo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id=@Model.Id_Form>
+                <div class="modal-body">
+                    @foreach (var item in @Model.Inputs)
+                    {
+                        <div class="row m-b-15">
+                            @if (!@item.Type_input.Equals("hidden"))
+                            {
+                                <p class="col-2">@item.Label</p>
+                            }
+                            <input type=@item.Type_input class="col-8 form-control ml-2"
+                                   id=@item.Id_input name=@item.Name_input maxlength=@item.Max_length
+                                   style="padding-top: 0px; padding-bottom: 0px; font-weight: bold; font-size: 16px;" />
+                        </div>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id=@Model.Id_Button>@Model.Name_Button</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

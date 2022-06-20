@@ -24,8 +24,9 @@ namespace ProyectoPruebaAleix.Infrastructure.Repositories
 
         public async Task Delete(int id)
         {
-            var entityToDelete = await _dbSet.FindAsync(id);
+            var entityToDelete = _dbSet.Find(id);
             _dbSet.Remove(entityToDelete);
+            _context.SaveChanges();
         }
 
         public IEnumerable<T> GetAll()
@@ -47,8 +48,10 @@ namespace ProyectoPruebaAleix.Infrastructure.Repositories
 
         public T Update(T obj)
         {
-            _context.Entry(obj).State = EntityState.Modified;
+            //_context.Entry(obj).State = EntityState.Modified;
+            _dbSet.Update(obj);
             _context.SaveChanges();
+            _context.Entry(obj).State = EntityState.Detached;
             return obj;
         }
     }

@@ -12,7 +12,7 @@ namespace ProyectoPruebaAleix.Infrastructure.Processing
 
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<ClientService>().As<IClientService>().SingleInstance();
+            builder.RegisterType<ClientService>().As<IClientService>().InstancePerLifetimeScope();
         }
     }
 }

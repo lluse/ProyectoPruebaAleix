@@ -1,14 +1,7 @@
 ﻿@model ClientModel
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Clientes";
 }
-
-@section scripts {
-    <link rel="stylesheet" href="~/css/bootstrap.css" />
-    <script src="~/js/bootstrap.bundle.min.js"></script>
-}
-
-
 
 <div class="text-center">
     <h1 class="display-4">Clientes</h1>
@@ -21,17 +14,43 @@
             <th>Editar</th>
             <th>Eliminar</th>
         </tr>
-        @foreach (var client in Model._clients)
+        @foreach (var client in Model.Clients)
         {
             <tr>
                 <td>@client.Nombre</td>
                 <td>@client.Apellidos</td>
                 <td>@client.Nif</td>
                 <td>@client.Email</td>
-                <td><button class="btn btn-success">Editar</button></td>
-                <td><button class="btn btn-danger">Eliminar</button></td>
+                <td><button type="submit" class="btn btn-success" onclick="editarCliente(@client.ClientId)" aria-label="Left Align" formnovalidate>Editar</button></td>
+                <td><button type="submit" class="btn btn-danger" onclick="eliminarCliente(@client.ClientId)" aria-label="Left Align" formnovalidate>Eliminar</button></td>
             </tr>
         }
     </table>
     <button id="nuevoCliente" class="btn btn-primary float-right">Nuevo Cliente</button>
 </div>
+
+@await Component.InvokeAsync("ClienteModal", @Model.ModalInformacionCliente)
+
+<div class="modal fade" id="confirm-delete-cliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Eliminar cliente
+            </div>
+            <div class="modal-body">
+                ¿Seguro que desea eliminar el cliente?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <a class="btn btn-danger btn-ok">Eliminar</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <!--script src="~/js/site.js"></!--script>-->
+}

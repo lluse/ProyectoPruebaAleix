@@ -10,5 +10,6 @@ namespace ProyectoPruebaAleix.Infrastructure.Services
         IEnumerable<ClientDto> FindAll();
         ClientDto UpdateClient(ClientDto clientDto);
         ClientDto CreateClient(ClientDto clientDto);
+        void DeleteClient(int clientId);
     }
 }

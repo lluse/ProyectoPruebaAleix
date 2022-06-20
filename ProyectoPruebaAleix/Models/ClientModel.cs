@@ -5,14 +5,13 @@ namespace ProyectoPruebaAleix.Models
 {
     public class ClientModel
     {
+        public IEnumerable<ClientDto> Clients { get; set; }
+        public ModalInformationModel ModalInformacionCliente { get; set; }
 
-        public ClientModel(IEnumerable<ClientDto> clients)
+        public ClientModel()
         {
-            _clients = clients;
+
         }
-
-        public IEnumerable<ClientDto> _clients { get; set; }
-
 
     }
 }

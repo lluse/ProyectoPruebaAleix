@@ -50,5 +50,9 @@ namespace ProyectoPruebaAleix.Infrastructure.Services
             return _mapper.Map<Client, ClientDto>(client);
         }
 
+        public void DeleteClient(int clientId)
+        {
+            _clientRepository.Delete(clientId);
+        }
     }
 }
